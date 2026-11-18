@@ -14,6 +14,10 @@ The main goal was to recreate the given design as closely as possible and make t
 - Footer section
 - Smooth scrolling and simple animations
 
+  ## Live Demo
+
+[View Live Website](https://figmadesign-wine.vercel.app/)
+
 ## Technologies Used
 
 - HTML5
