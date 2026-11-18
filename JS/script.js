@@ -33,9 +33,14 @@ let currentIndex = 0;
 
 function getVisibleCards() {
     const cardWidth = cards[0].getBoundingClientRect().width;
-    const trackWidth = track.parentElement.getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    const carouselWidth = document.querySelector(".Carousel").clientWidth;
+    const visibleWidth = carouselWidth - 196;
 
-    return Math.max(1, Math.floor(trackWidth / cardWidth));
+    return Math.max(
+        1,
+        Math.floor((visibleWidth + gap) / (cardWidth + gap))
+    );
 }
 
 function updateCarousel() {
@@ -99,7 +104,7 @@ contactForm.addEventListener("submit", function (event) {
 });
 
 const revealElements = document.querySelectorAll(
-    ".project-card1, .project-card2, .review-card, .contact-info-card"
+    ".project-card1, .project-card2, .contact-info-card"
 );
 
 const observer = new IntersectionObserver(function (entries) {
